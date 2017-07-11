@@ -56,7 +56,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Data\User.cs" />
+    <Compile Include="Data\Channel.cs" />
+    <Compile Include="Messages\DiscordMessage.cs" />
+    <Compile Include="Messages\MessageReceivedMessage.cs" />
+    <Compile Include="Messages\MessageType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

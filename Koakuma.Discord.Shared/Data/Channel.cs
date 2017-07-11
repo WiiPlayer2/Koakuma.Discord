@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Koakuma.Discord.Shared
+namespace Koakuma.Discord.Shared.Data
 {
-    public class Class1
+    [Serializable]
+    public class Channel
     {
     }
 }

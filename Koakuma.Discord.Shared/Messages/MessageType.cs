@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Koakuma.Discord
+namespace Koakuma.Discord.Shared.Messages
 {
-    public class Class1
+    public enum MessageType
     {
+        MessageReceived,
     }
 }
