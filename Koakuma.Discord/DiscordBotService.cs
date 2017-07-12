@@ -73,20 +73,20 @@ namespace Koakuma.Discord
             };
             client = new DiscordSocketClient(config);
             client.MessageReceived += Client_MessageReceived;
-
-            client.LoginAsync(global::Discord.TokenType.Bot,
-                Config.Get<string>("token", null)).Wait();
-            client.StartAsync().Wait();
         }
 
         private async Task Client_MessageReceived(SocketMessage arg)
         {
-            Koakuma.SendHook("message.received", new MessageReceivedMessage()
+            if (client.GetGuild(Config.Get<ulong>("guild", 0L))?.GetChannel(arg.Channel.Id) != null)
             {
-                Channel = arg.Channel.To(),
-                Author = arg.Author.To(),
-                Text = arg.Content,
-            });
+                Koakuma.Logger.Log(LogLevel.Verbose, $"[#{arg.Channel}] {arg.Author}: {arg}");
+                Koakuma.SendHook("message.received", new MessageReceivedMessage()
+                {
+                    Channel = arg.Channel.To(),
+                    Author = arg.Author.To(),
+                    Text = arg.Content,
+                });
+            }
         }
 
         public void OnMessage(ModuleID from, BaseMessage msg, byte[] payload)
@@ -99,6 +99,9 @@ namespace Koakuma.Discord
 
         public void Start()
         {
+            client.LoginAsync(global::Discord.TokenType.Bot,
+                Config.Get<string>("token", null)).Wait();
+            client.StartAsync().Wait();
         }
 
         public void Stop()

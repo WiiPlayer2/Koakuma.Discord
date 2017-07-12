@@ -34,8 +34,8 @@
       <HintPath>..\packages\BouncyCastle.1.8.1\lib\BouncyCastle.Crypto.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Koakuma.Shared, Version=1.0.6401.1277, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Koakuma.Shared.1.0.6401.1277\lib\net452\Koakuma.Shared.dll</HintPath>
+    <Reference Include="Koakuma.Shared, Version=1.0.6402.18920, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Koakuma.Shared.1.0.6402.18920\lib\net452\Koakuma.Shared.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="MessageNetwork, Version=1.0.6400.37223, Culture=neutral, processorArchitecture=MSIL">
