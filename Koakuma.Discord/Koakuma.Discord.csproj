@@ -58,8 +58,8 @@
       <HintPath>..\packages\Discord.Net.WebSocket.1.0.1\lib\net45\Discord.Net.WebSocket.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Koakuma.Shared, Version=1.0.6402.18920, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Koakuma.Shared.1.0.6402.18920\lib\net452\Koakuma.Shared.dll</HintPath>
+    <Reference Include="Koakuma.Shared, Version=1.0.6402.30815, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Koakuma.Shared.1.0.6402.30815\lib\net452\Koakuma.Shared.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="MessageNetwork, Version=1.0.6400.37223, Culture=neutral, processorArchitecture=MSIL">
