@@ -57,8 +57,13 @@ namespace Koakuma.Discord
             {
                 case "message.send":
                     {
-                        var channel = ExtractArgument(ref command);
+                        var channelName = ExtractArgument(ref command);
                         var msg = ExtractArgument(ref command);
+
+                        var channel = client.GetGuild(Config.Get("guild", 0UL))
+                            .TextChannels
+                            .SingleOrDefault(o => o.Name == channelName);
+                        channel?.SendMessageAsync(msg);
                     }
                     break;
             }
@@ -77,7 +82,7 @@ namespace Koakuma.Discord
 
         private async Task Client_MessageReceived(SocketMessage arg)
         {
-            if (client.GetGuild(Config.Get<ulong>("guild", 0L))?.GetChannel(arg.Channel.Id) != null)
+            if (arg.Author.Id != client.CurrentUser.Id && client.GetGuild(Config.Get("guild", 0UL))?.GetChannel(arg.Channel.Id) != null)
             {
                 Koakuma.Logger.Log(LogLevel.Verbose, $"[#{arg.Channel}] {arg.Author}: {arg}");
                 Koakuma.SendHook("message.received", new MessageReceivedMessage()
@@ -118,14 +123,14 @@ namespace Koakuma.Discord
 
         private string ExtractArgument(ref string args)
         {
-            if(args == null)
+            if (args == null)
             {
                 return null;
             }
 
             var index = args.IndexOf('|');
             var ret = args;
-            if(index != -1)
+            if (index != -1)
             {
                 ret = args.Substring(0, index);
                 args = args.Substring(index + 1);
