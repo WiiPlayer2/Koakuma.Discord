@@ -12,16 +12,23 @@ namespace Koakuma.Discord
     {
         public static Channel To(this ISocketMessageChannel channel)
         {
-            throw new NotImplementedException();
+            return new Channel()
+            {
+
+            };
         }
 
         public static ISocketMessageChannel To(this Channel channel)
         {
             throw new NotImplementedException();
         }
+
         public static User To(this SocketUser channel)
         {
-            throw new NotImplementedException();
+            return new User()
+            {
+
+            };
         }
 
         public static SocketUser To(this User channel)
